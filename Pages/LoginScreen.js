@@ -68,15 +68,10 @@ style = {styles.pic}
 
 </View>
         
-        
-        
-
+ 
 <View style = {styles.inputContainer}>
 
 
-
-    
-    
     <TextInput
     
     placeholder='Email'
@@ -122,8 +117,6 @@ style = {styles.pic}
       
 
       </KeyboardAvoidingView>
-
-      
 
       
   )

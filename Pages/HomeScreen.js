@@ -3,8 +3,10 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { auth } from './firebase'
 import { useNavigation } from '@react-navigation/core'
+import StyledButtons from '../StyledButtons'
+import { ImageBackground } from 'react-native'
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
 
     const navigation = useNavigation();
 
@@ -17,6 +19,12 @@ const HomeScreen = () => {
 
   return (
     <View style = {styles.container}>
+       <ImageBackground
+       source = {require('../assets/paper.jpg')}
+       style=  {styles.photo}
+      
+      
+      />
       <Text>user-Email:{auth.currentUser?.email}</Text>
       <TouchableOpacity 
       onPress={handleSignout}
@@ -25,6 +33,45 @@ const HomeScreen = () => {
       <Text style = {styles.buttonText}>Sign out</Text>
 
       </TouchableOpacity>
+      <View style = {styles.buttonContainer}>
+
+        <StyledButtons 
+        content = {"Add Item"}
+        onPress = {()=>
+        {console.warn('Add Item is pressed');
+      }}
+       
+        
+        />
+
+      <StyledButtons 
+        content = {"Friends"}
+        onPress = {()=>
+        {console.warn('Friends button is pressed');
+      }}
+       
+        
+        />
+        <StyledButtons 
+        content = {"Notifications"}
+        onPress = {()=>
+        {console.warn('Notifications is pressed');
+      }}
+       
+        
+        />
+
+      <StyledButtons 
+        content = {"Lists"}
+        onPress = {()=>
+        {console.warn('Lists is pressed');
+      }}
+       
+        
+        />   
+
+
+      </View>
     </View>
   )
 }
@@ -40,7 +87,7 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         justifyContent:"center",
-        alignItems:'center'
+        alignItems:'center',
     
       },
     
@@ -53,11 +100,26 @@ const styles = StyleSheet.create({
       },
       button:{
         backgroundColor: "brown",
-               width:'100%',
+               width:'96%',
                padding: 15,
                borderRadius:10,
                alignItems:'center',
                marginTop: 40
+      },
+      buttonContainer:{
+        position:'absolute',
+        top:40,
+        width:'100%'
+      },
+      photo:{
+        width:'94%',
+        height:'85%',
+        alignContent:'center',
+        alignItems:'center',
+        justifyContent:'center'
+        
+        
+
       }
     
 
