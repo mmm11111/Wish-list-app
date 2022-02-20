@@ -6,6 +6,9 @@ import { useNavigation } from '@react-navigation/core';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { ImageBackground } from 'react-native';
 
+import Header from '../Header';
+
+
 const LoginScreen = () => {
 
         
@@ -65,6 +68,7 @@ source={require('../assets/gifts.png')}
 
 style = {styles.pic}
 />
+    <Header/>
 
 </View>
         
