@@ -46,10 +46,24 @@ export default function RegisterScreen() {
 
                 />
             </View>    
+            <View style={styles.buttonContainer}>
+            <TouchableOpacity
+                    onPress={() => handleSignup()}
+                    style= {styles.button}
+                    >                                   
+            
+                    <Text style = {styles.buttonText}> Register</Text>
+            
+                    </TouchableOpacity>
+                <TouchableOpacity
+                        onPress = {() => navigation.navigate("Login")}
+                        style= {[styles.button, styles.buttonOutline]}               
+                        >
+                <Text style = {styles.buttonOutlineText}> Login</Text>
+                </TouchableOpacity>         
+                
+            </View>
         </KeyboardAvoidingView>
-        <Button title="Login" onPress={() => navigation.navigate("Login")}></Button>
-        <Button title="Create Account"
-        onPress={() => handleSignup()}></Button>
     </SafeAreaView>
   )
 }
@@ -60,13 +74,10 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         backgroundColor: 'brown'
-        
-        
     },
 
     inputContainer:{
         width: '80%'
-
     },
      input:{
          backgroundColor:"green",
@@ -75,10 +86,6 @@ const styles = StyleSheet.create({
          borderRadius:10,
          marginTop:5,
          color:'white'
-         
-
-
-
      },
      buttonContainer:{
          width: '60%',
@@ -87,8 +94,6 @@ const styles = StyleSheet.create({
          marginTop:25
 
      },
-
-
      button:{
          backgroundColor: "brown",
          width:'100%',
