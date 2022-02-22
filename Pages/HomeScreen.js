@@ -39,6 +39,7 @@ const HomeScreen = (props) => {
         content = {"Add Item"}
         onPress = {()=>
         {console.warn('Add Item is pressed');
+        navigation.navigate("AddItem");
       }}
        
         
@@ -48,14 +49,15 @@ const HomeScreen = (props) => {
         content = {"Friends"}
         onPress = {()=>
         {console.warn('Friends button is pressed');
-      }}
+        navigation.navigate("FriendScreen");}}
        
         
         />
         <StyledButtons 
         content = {"Notifications"}
         onPress = {()=>
-        {console.warn('Notifications is pressed');
+        {console.warn('Notifications is pressed')
+        navigation.navigate("Notifications");;
       }}
        
         
@@ -65,6 +67,7 @@ const HomeScreen = (props) => {
         content = {"Lists"}
         onPress = {()=>
         {console.warn('Lists is pressed');
+        navigation.navigate("ListScreen");
       }}
        
         

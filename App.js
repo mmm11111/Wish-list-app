@@ -5,6 +5,10 @@ import { StyleSheet, Text, View,ImageBackground,Pressable,Button } from 'react-n
 
 import LoginScreen from './Pages/LoginScreen';
 import HomeScreen from './Pages/HomeScreen';
+import AddItem from './Pages/AddItem';
+import FriendScreen from './Pages/FriendScreen';
+import Notifications from './Pages/Notifications';
+import ListScreen from './Pages/ListScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +26,11 @@ export default function App() {
 
     
       <Stack.Screen options={{headerShown:false}} name = "Login" component={LoginScreen} />  
-       <Stack.Screen  name = "Home" component={HomeScreen} />   
+      <Stack.Screen  name = "Home" component={HomeScreen} />   
+      <Stack.Screen name = "AddItem" component={AddItem} />
+      <Stack.Screen name = "FriendScreen" component={FriendScreen} />
+      <Stack.Screen name = "Notifications" component={Notifications} />
+      <Stack.Screen name = "ListScreen" component={ListScreen} />
 
     </Stack.Navigator>
 
