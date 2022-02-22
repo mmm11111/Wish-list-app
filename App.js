@@ -9,33 +9,24 @@ import AddItem from './Pages/AddItem';
 import FriendScreen from './Pages/FriendScreen';
 import Notifications from './Pages/Notifications';
 import ListScreen from './Pages/ListScreen';
+import RegisterScreen from './Pages/RegisterScreen';
 
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-
-    
-
-    
+    // navigation container to handle all navigation
     <NavigationContainer> 
-      
-
-    <Stack.Navigator>
-
-    
-      <Stack.Screen options={{headerShown:false}} name = "Login" component={LoginScreen} />  
-      <Stack.Screen  name = "Home" component={HomeScreen} />   
-      <Stack.Screen name = "AddItem" component={AddItem} />
-      <Stack.Screen name = "FriendScreen" component={FriendScreen} />
-      <Stack.Screen name = "Notifications" component={Notifications} />
-      <Stack.Screen name = "ListScreen" component={ListScreen} />
-
-    </Stack.Navigator>
-
-
-
+      <Stack.Navigator initialRouteName='Login'>
+          <Stack.Screen options={{headerShown:false}} name = "Login" component={LoginScreen} />  
+          <Stack.Screen options={{headerShown:false}} name="Register" component={RegisterScreen} />
+          <Stack.Screen  name = "Home" component={HomeScreen} />   
+          <Stack.Screen name = "AddItem" component={AddItem} />
+          <Stack.Screen name = "FriendScreen" component={FriendScreen} />
+          <Stack.Screen name = "Notifications" component={Notifications} />
+          <Stack.Screen name = "ListScreen" component={ListScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

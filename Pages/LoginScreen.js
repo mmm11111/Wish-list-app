@@ -27,17 +27,7 @@ const LoginScreen = () => {
 
         },[])
 
-
-         const handleSignup = ()=>{
-            
-            createUserWithEmailAndPassword(auth,email,password)
-            .then(userCredentials => {
-                const user = userCredentials.user;
-                console.log("registered",user.email);
-            })
-            .catch(error => alert(error.message))
-            
-        }
+        
 
         const handleLogin = ()=>{
             signInWithEmailAndPassword(auth,email,password)
@@ -52,73 +42,60 @@ const LoginScreen = () => {
 
   return (
 
-    
     <KeyboardAvoidingView
     style = {styles.container}
-    behavior= 'padding'
+    behavior= 'padding'>
+        <View style = {styles.container}> 
+            <ImageBackground 
+            source={require('../assets/gifts.png')}
+            style = {styles.pic}
+            />
+            <Header/>
+        </View>
+        <View style = {styles.inputContainer}>
+            <TextInput
+            
+            placeholder='Email'
+            value={email}
+            onChangeText = {text => setEmail(text)}
+            style = {styles.input}
 
-    
+            />
 
-    >
-<View style = {styles.container}> 
-        <ImageBackground 
+            <TextInput
+            
+            placeholder='Password'
+            value={password}
+            onChangeText = {text =>setpassword(text) }
+            style = {styles.input}
+            secureTextEntry
 
-
-source={require('../assets/gifts.png')}
-
-style = {styles.pic}
-/>
-    <Header/>
-
-</View>
-        
- 
-<View style = {styles.inputContainer}>
-
-
-    <TextInput
-    
-    placeholder='Email'
-    value={email}
-    onChangeText = {text => setEmail(text)}
-    style = {styles.input}
-
-    />
-
-    <TextInput
-    
-    placeholder='Password'
-    value={password}
-    onChangeText = {text =>setpassword(text) }
-    style = {styles.input}
-    secureTextEntry
-
-    />
+            />
 
 
-    </View>
-    <View  style ={styles.buttonContainer} > 
-            <TouchableOpacity
-              onPress = {handleLogin}
-              style= {styles.button}
-            >                                   
-    
-            <Text style = {styles.buttonText}> Login</Text>
-    
-            </TouchableOpacity>
-    
-            <TouchableOpacity
-              onPress = {handleSignup}
-              style= {[styles.button, styles.buttonOutline]}               
-            >                                   
-    
-            <Text style = {styles.buttonOutlineText}> Register</Text>
-    
-            </TouchableOpacity>
-    
             </View>
+            <View  style ={styles.buttonContainer} > 
+                    <TouchableOpacity
+                    onPress = {handleLogin}
+                    style= {styles.button}
+                    >                                   
+            
+                    <Text style = {styles.buttonText}> Login</Text>
+            
+                    </TouchableOpacity>
+            
+                    <TouchableOpacity
+                    onPress = {() => navigation.navigate("Register")}
+                    style= {[styles.button, styles.buttonOutline]}               
+                    >                                   
+            
+                    <Text style = {styles.buttonOutlineText}> Register</Text>
+            
+                    </TouchableOpacity>
+            
+                    </View>
 
-      
+            
 
       </KeyboardAvoidingView>
 
