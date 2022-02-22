@@ -2,13 +2,14 @@ import React, {useState,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/core';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { KeyboardAvoidingViewBase, StyleSheet, Text, View,TextInput, Button } from 'react-native'
-import { KeyboardAvoidingView,TouchableOpacity } from 'react-native'
+import { KeyboardAvoidingView,TouchableOpacity, Alert } from 'react-native'
 import { auth } from './firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function RegisterScreen() {
     const [email, setEmail] =useState('')
     const [password, setpassword] =useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const navigation = useNavigation();
 
 
@@ -19,8 +20,24 @@ export default function RegisterScreen() {
             const user = userCredentials.user;
             console.log("registered",user.email);
         })
-        .catch(error => alert(error.message))
+        .catch(error => Alert.alert('Error', error.message, [{text: 'OK'},], {cancelable: true}))
         
+    }
+
+    const validatePassword = () => 
+    {
+
+        if (password == '') {
+            alert("Password cannot be blank!")
+        }
+        else if (password != confirmPassword)
+        {
+            alert("Your passwords do not match!");
+        }
+        else
+        {
+            handleSignup();
+        }
     }
 
   return (
@@ -45,10 +62,19 @@ export default function RegisterScreen() {
                 secureTextEntry
 
                 />
+                <TextInput
+                
+                placeholder='Confirm Password'
+                value={confirmPassword}
+                onChangeText = {text =>setConfirmPassword(text) }
+                style = {styles.input}
+                secureTextEntry
+
+                />
             </View>    
             <View style={styles.buttonContainer}>
             <TouchableOpacity
-                    onPress={() => handleSignup()}
+                    onPress={() => validatePassword()}
                     style= {styles.button}
                     >                                   
             
